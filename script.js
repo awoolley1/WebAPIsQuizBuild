@@ -1,7 +1,8 @@
 
 var questionEl = document.getElementById("question")
 var answerButtons = document.getElementById("answer-buttons")
-var questionContainerEl = document.getElementById("question-container")
+var answerClickedV;
+var questionsGrid = document.getElementById("questions-grid")
 var startButton = document.getElementById("start-btn")
 var nextButton = document.getElementById("next-btn")
 var answer1 = document.getElementById("ans-1");
@@ -22,7 +23,7 @@ let answers5Text = ["JavaScript", "Terminal/Bash", "For Loop", "Console Log"];
 // start button function 
 function startFunction() {
 
-    questionContainerEl.classList.remove("hidden");
+    questionsGrid.classList.remove("hidden");
     startButton.classList.add("hidden");
     questionEl.innerText = questionsText[0]
     answer1.innerText = answers1Text[0]
@@ -32,26 +33,43 @@ function startFunction() {
 }
     startButton.addEventListener("click", startFunction)
 
-
+function setAnswer(event) {
+ if (event.target.id === "ans-1") {
+   answerClickedV = answer1
+ } else if (event.target.id === "ans-2") {
+  answerClickedV = answer2
+} else if (event.target.id === "ans-3") {
+  console.log(answer3)
+  answerClickedV = answer3
+  console.log(answerClickedV)
+} else if (event.target.id === "ans-4") {
+  answerClickedV = answer4
+}
+}
 //set answer click function (ADD TIMER PENALTY HERE) 
 function answerClicked() {
-    if (
+  if (
         (currentQuestionIndex === 0 &&
-          document.getElementById('ans-3').clicked == true) ||
+        answerClickedV === answer3) ||
         (currentQuestionIndex === 1 &&
-          document.getElementById('ans-3').clicked == true) ||
+        answerClickedV === answer3) ||
         (currentQuestionIndex === 2 &&
-          document.getElementById('ans-4').clicked == true) ||
+        answerClickedV === answer4) ||
         (currentQuestionIndex === 3 &&
-          document.getElementById('ans-3').clicked == true) ||
+        answerClickedV === answer3) ||
         (currentQuestionIndex === 4 &&
-          document.getElementById('ans-4').clicked == true)
-      ) {
+        answerClickedV === answer4) 
+        ) {
+          
         score++
+        console.log(score)
+        alert("winner")
+        nextFunction()
       //else... timer deduction 
     } else {
-        score--
+        nextFunction()
       }
+
     }
 
 // next button function - display next set of Q&A
@@ -84,10 +102,10 @@ function nextFunction() {
         answer3.innerText = answers5Text[2]
         answer4.innerText = answers5Text[3] 
 }
-alert(currentQuestionIndex)
-alert(score)
+//answerClicked(event)
 }
-nextButton.addEventListener("click", nextFunction, answerClicked) 
+nextButton.addEventListener("click", answerClicked) 
+answerButtons.addEventListener("click", setAnswer)
 
 /* score to local storage function
 if(add variables declaring all questions have been asked) {

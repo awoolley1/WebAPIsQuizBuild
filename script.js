@@ -1,10 +1,12 @@
 
 var questionEl = document.getElementById("question")
 var answerButtons = document.getElementById("answer-buttons")
+var instructions = document.getElementById("instructions")
 var answerClickedV;
 var questionsGrid = document.getElementById("questions-grid")
 var startButton = document.getElementById("start-btn")
 var nextButton = document.getElementById("next-btn")
+var nextBtnDiv = document.getElementById("nexter")
 var answer1 = document.getElementById("ans-1");
 var answer2 = document.getElementById("ans-2");
 var answer3 = document.getElementById("ans-3");
@@ -25,6 +27,7 @@ function startFunction() {
 
     questionsGrid.classList.remove("hidden");
     startButton.classList.add("hidden");
+    nextBtnDiv.classList.remove("hidden");
     questionEl.innerText = questionsText[0]
     answer1.innerText = answers1Text[0]
     answer2.innerText = answers1Text[1]

@@ -27,7 +27,17 @@ var secondsRemaining = 30
  //end game function
  function endGame() {
   nextBtnDiv.classList.add("hidden");
+  questionsGrid.classList.add("hidden");
+  startButton.classList.remove("hidden");
   alert("You scored " + score + " points. Congratulations!!!")
+  prompt("Enter YOUR NAME to store your score")
+  score=0
+  currentQuestionIndex=0
+  secondsRemaining=30
+  instructions.innerText= "Instructions: Press Start Button to begin quiz. Click to select the right answer, then click the Next Button once you've settled on a final answer.  Wrong answers will incur a 5 second run-off penalty.  Good luck!!! ";
+  instructions.style.color = "black"
+  // set scores & intials to local storage
+   localStorage.setItem("highScoreList", JSON.stringify)
 
   return
 }
@@ -131,12 +141,7 @@ function nextFunction() {
 nextButton.addEventListener("click", answerClicked) 
 answerButtons.addEventListener("click", setAnswer)
 
-/* score to local storage function
-if(add variables declaring all questions have been asked) {
-localStorage.setItem('recentScore', score)
 
-return window.location.assign('/end.html')
- */
 
 
 

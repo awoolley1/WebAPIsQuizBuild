@@ -1,6 +1,7 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+
+#headText {
+    font-family: fantasy;
+    color: violet;
 }
 
 :root {
@@ -36,6 +37,21 @@
     border-radius: 5px, 10px;
     color: white; 
     outline: none
+}
+
+.btn2 {
+    --hue: var(--hue-neutral);
+    border: 1px solid hsl(var(--hue), 100%, 30%);
+    background-color:green;
+    border-radius: 50px, 50px;
+    color: white; 
+    outline: none
+}
+
+.btn3 {
+    width:100%;
+    justify-content: center;
+    margin-right: 10px;
 }
 
 #nexter {

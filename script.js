@@ -20,10 +20,9 @@ let answers1Text = ["Strings", "Booleans", "Alerts", "Numbers"];
 let answers2Text = ["Quotes", "Curly brackets", "Parentheses", "Square Brackets"];
 let answers3Text = ["Numbers and strings", "Other arrays", "Booleans", "All of the above"];
 let answers4Text = ["Commas", "Curly brackets", "Quotes", "Parentheses"];
-let answers5Text = ["JavaScript", "Terminal/Bash", "For Loop", "Console Log"];
-
-//setting timer variables 
+let answers5Text = ["JavaScript", "Terminal/Bash", "For Loop", "Console Log"]; 
 var secondsRemaining = 30
+
 var secondsDisplay = setInterval(function(){
   if(secondsRemaining <= 0){
     clearInterval(secondsRemaining);
@@ -79,12 +78,11 @@ function answerClicked() {
         ) {
           
         score++
-        console.log(score)
-        alert("winner")
         nextFunction()
       //else... timer deduction 
     } else {
-        nextFunction()
+      secondsRemaining-=5  
+      nextFunction()
       }
 
     }

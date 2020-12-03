@@ -1,7 +1,7 @@
 
 var questionEl = document.getElementById("question")
 var answerButtons = document.getElementById("answer-buttons")
-var instructions = document.getElementById("instructions")
+var instructions = document.getElementById("instCont")
 var answerClickedV;
 var questionsGrid = document.getElementById("questions-grid")
 var startButton = document.getElementById("start-btn")
@@ -22,12 +22,26 @@ let answers3Text = ["Numbers and strings", "Other arrays", "Booleans", "All of t
 let answers4Text = ["Commas", "Curly brackets", "Quotes", "Parentheses"];
 let answers5Text = ["JavaScript", "Terminal/Bash", "For Loop", "Console Log"];
 
+//setting timer variables 
+var secondsRemaining = 30
+var secondsDisplay = setInterval(function(){
+  if(secondsRemaining <= 0){
+    clearInterval(secondsRemaining);
+    document.getElementById("seconds").innerHTML = "GAME OVER!!!";
+  } else {
+    document.getElementById("seconds").innerHTML = secondsRemaining + " seconds remaining";
+  }
+  secondsRemaining -= 1;
+}, 1000);
+
 // start button function 
 function startFunction() {
 
     questionsGrid.classList.remove("hidden");
     startButton.classList.add("hidden");
     nextBtnDiv.classList.remove("hidden");
+    instructions.innerText= "GAME ON!!!";
+    instructions.style.color = "red"
     questionEl.innerText = questionsText[0]
     answer1.innerText = answers1Text[0]
     answer2.innerText = answers1Text[1]

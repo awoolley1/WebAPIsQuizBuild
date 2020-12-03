@@ -130,9 +130,10 @@ return window.location.assign('/end.html')
  //end game function
  function endGame() {
  }
-   if (secondsRemaining <=7 || currentQuestionIndex>=5) {
-    endGame()
-    alert("working")
-   }
+
+if (secondsRemaining <= 2) {
+  alert("working")
+  endGame()
+}
  
 

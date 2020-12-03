@@ -15,6 +15,7 @@ var currentQuestionIndex = 0;
 var clickCounter = 0;
 let maxCounter = 5;
 var score = 0;
+var arrayOfScores = []
 let questionsText = ["Commonly used data types DO NOT include '_____'", "The conditon in an if/else statement is enclosed within '_____'", "Arrays in JavaScript can be used to store '_____'", "String values must be enclosed within '_____' when being assigned to variables", "A very useful tool used during development and debugging for printing content to the debugger is '_____'"];
 let answers1Text = ["Strings", "Booleans", "Alerts", "Numbers"];
 let answers2Text = ["Quotes", "Curly brackets", "Parentheses", "Square Brackets"];
@@ -22,6 +23,7 @@ let answers3Text = ["Numbers and strings", "Other arrays", "Booleans", "All of t
 let answers4Text = ["Commas", "Curly brackets", "Quotes", "Parentheses"];
 let answers5Text = ["JavaScript", "Terminal/Bash", "For Loop", "Console Log"]; 
 var secondsRemaining = 30
+var arrayOfScores
 
 
  //end game function
@@ -30,20 +32,25 @@ var secondsRemaining = 30
   questionsGrid.classList.add("hidden");
   startButton.classList.remove("hidden");
   alert("You scored " + score + " points. Congratulations!!!")
-  prompt("Enter YOUR NAME to store your score")
-  score=0
-  currentQuestionIndex=0
-  secondsRemaining=30
+  var scorerName = prompt("Enter YOUR NAME to store your score")
   instructions.innerText= "Instructions: Press Start Button to begin quiz. Click to select the right answer, then click the Next Button once you've settled on a final answer.  Wrong answers will incur a 5 second run-off penalty.  Good luck!!! ";
   instructions.style.color = "black"
 
   // set scores & intials to local storage
-   localStorage.setItem("highScoreList", JSON.stringify)
-  function renderHighscores() {
-    var highScoreNumber = localStorage.getItem("");
-    var highScoreName = localStorage.getItem("");
-    alert("The leading scorer is " + highScoreName + "with a score of " + highScoreNumber + " points.")
-  }
+  var topPlayer={
+    name: scorerName,
+    score: score
+ }
+  
+  var arrayOfScores = JSON.parse( localStorage.getItem("highScoreList")) || []
+  arrayOfScores.push(scorerName)
+  localStorage.setItem("highScoreList", JSON.stringify(arrayOfScores))
+
+  alert("The leading scorer is " + topPlayer.name.maxCounter + "with a score of " + topPlayer.score.maxCounter + " points.")
+
+  currentQuestionIndex=0
+  secondsRemaining=30
+  score=0
   return
 }
 

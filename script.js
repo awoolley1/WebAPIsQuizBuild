@@ -37,6 +37,7 @@ function startFunction() {
 
     var secondsDisplay = setInterval(function(){
     if(secondsRemaining <= 0 || currentQuestionIndex>=5){
+      clearInterval(secondsDisplay);
       document.getElementById("seconds").innerHTML = "GAME OVER!!!";
       endGame()
 

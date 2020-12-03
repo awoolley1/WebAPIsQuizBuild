@@ -24,12 +24,22 @@ let answers5Text = ["JavaScript", "Terminal/Bash", "For Loop", "Console Log"];
 var secondsRemaining = 30
 
 
+ //end game function
+ function endGame() {
+  nextBtnDiv.classList.add("hidden");
+  alert("You scored " + score + " points. Congratulations!!!")
+
+  return
+}
+
 // start button function 
 function startFunction() {
 
     var secondsDisplay = setInterval(function(){
-    if(secondsRemaining <= 0){
+    if(secondsRemaining <= 0 || currentQuestionIndex>=5){
       document.getElementById("seconds").innerHTML = "GAME OVER!!!";
+      endGame()
+
     } else {
       document.getElementById("seconds").innerHTML = secondsRemaining + " seconds remaining";
     }
@@ -127,13 +137,9 @@ localStorage.setItem('recentScore', score)
 return window.location.assign('/end.html')
  */
 
- //end game function
- function endGame() {
- }
 
-if (secondsRemaining <= 2) {
-  alert("working")
-  endGame()
-}
+
+
+
  
 

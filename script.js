@@ -23,19 +23,19 @@ let answers4Text = ["Commas", "Curly brackets", "Quotes", "Parentheses"];
 let answers5Text = ["JavaScript", "Terminal/Bash", "For Loop", "Console Log"]; 
 var secondsRemaining = 30
 
-var secondsDisplay = setInterval(function(){
-  if(secondsRemaining <= 0){
-    clearInterval(secondsRemaining);
-    document.getElementById("seconds").innerHTML = "GAME OVER!!!";
-  } else {
-    document.getElementById("seconds").innerHTML = secondsRemaining + " seconds remaining";
-  }
-  secondsRemaining -= 1;
-}, 1000);
 
 // start button function 
 function startFunction() {
 
+    var secondsDisplay = setInterval(function(){
+    if(secondsRemaining <= 0){
+      document.getElementById("seconds").innerHTML = "GAME OVER!!!";
+    } else {
+      document.getElementById("seconds").innerHTML = secondsRemaining + " seconds remaining";
+    }
+    secondsRemaining -= 1;
+  }, 1000);
+  
     questionsGrid.classList.remove("hidden");
     startButton.classList.add("hidden");
     nextBtnDiv.classList.remove("hidden");
@@ -55,9 +55,7 @@ function setAnswer(event) {
  } else if (event.target.id === "ans-2") {
   answerClickedV = answer2
 } else if (event.target.id === "ans-3") {
-  console.log(answer3)
   answerClickedV = answer3
-  console.log(answerClickedV)
 } else if (event.target.id === "ans-4") {
   answerClickedV = answer4
 }
@@ -128,3 +126,13 @@ localStorage.setItem('recentScore', score)
 
 return window.location.assign('/end.html')
  */
+
+ //end game function
+ function endGame() {
+ }
+   if (secondsRemaining <=0 || currentQuestionIndex>=5) {
+    endGame()
+    alert("working")
+   }
+ 
+

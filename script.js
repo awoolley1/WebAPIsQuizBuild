@@ -36,9 +36,14 @@ var secondsRemaining = 30
   secondsRemaining=30
   instructions.innerText= "Instructions: Press Start Button to begin quiz. Click to select the right answer, then click the Next Button once you've settled on a final answer.  Wrong answers will incur a 5 second run-off penalty.  Good luck!!! ";
   instructions.style.color = "black"
+
   // set scores & intials to local storage
    localStorage.setItem("highScoreList", JSON.stringify)
-
+  function renderHighscores() {
+    var highScoreNumber = localStorage.getItem("");
+    var highScoreName = localStorage.getItem("");
+    alert("The leading scorer is " + highScoreName + "with a score of " + highScoreNumber + " points.")
+  }
   return
 }
 

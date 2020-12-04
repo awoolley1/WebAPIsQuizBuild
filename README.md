@@ -1,5 +1,5 @@
 Decription: 
-*Codinmg Quiz - (I have created a coding quiz unsing a combination of HTML, CSS/Bootstrap and dynamic JS.  The quiz includes multiple choice questions, a timer and is built to reward correct answers with score points and punsih incorrect answers with a time run-off).
+*Coding Quiz - (I have created a coding quiz unsing a combination of HTML, CSS/Bootstrap and dynamic JS.  The quiz includes multiple choice questions, a timer and is built to reward correct answers with score points and punish incorrect answers with a time run-off).
 *Submission date of 12/3/2020
 
 Screenshots:

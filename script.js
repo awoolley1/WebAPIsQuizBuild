@@ -23,7 +23,7 @@ let answers3Text = ["Numbers and strings", "Other arrays", "Booleans", "All of t
 let answers4Text = ["Commas", "Curly brackets", "Quotes", "Parentheses"];
 let answers5Text = ["JavaScript", "Terminal/Bash", "For Loop", "Console Log"]; 
 var secondsRemaining = 30
-var arrayOfScores = localStorage || []
+var arrayOfScores = []
 
 
  //end game function
@@ -36,23 +36,25 @@ var arrayOfScores = localStorage || []
   instructions.innerText= "Instructions: Press Start Button to begin quiz. Click to select the right answer, then click the Next Button once you've settled on a final answer.  Wrong answers will incur a 5 second run-off penalty.  Good luck!!! ";
   instructions.style.color = "black"
 
-  // set scores & intials to local storage
-  var topPlayer={
+   // set scores & intials to local storage
+   var topPlayer={
     name: scorerName,
     score: score
  }
- 
- arrayOfScores.push(topPlayer)
- console.log(arrayOfScores)
+  
+  localStorage.getItem("highScoreList")
+  if (arrayOfScores) {
+    arrayOfScores.push(topPlayer)
+  } else { arrayOfScores.push(topPlayer)
+
+  }
 
  localStorage.setItem("highScoreList", JSON.stringify(topPlayer))
- 
-
- var arrayOfScores = JSON.parse( localStorage.getItem("highScoreList")) || []
+ var arrayOfScores = JSON.parse(localStorage.getItem("highScoreList")) || []
   
   
 
-  alert("The leading scorer is " + topPlayer.name.maxCounter + "with a score of " + topPlayer.score.maxCounter + " points.")
+  alert("The leading scorer is " + arrayOfScores.name + "with a score of " + arrayOfScores.score + " points.")
 
   currentQuestionIndex=0
   secondsRemaining=30

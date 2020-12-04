@@ -23,7 +23,7 @@ let answers3Text = ["Numbers and strings", "Other arrays", "Booleans", "All of t
 let answers4Text = ["Commas", "Curly brackets", "Quotes", "Parentheses"];
 let answers5Text = ["JavaScript", "Terminal/Bash", "For Loop", "Console Log"]; 
 var secondsRemaining = 30
-var arrayOfScores  
+var arrayOfScores = localStorage || []
 
 
  //end game function
@@ -42,9 +42,14 @@ var arrayOfScores
     score: score
  }
  
- localStorage.setItem("highScoreList", JSON.stringify(arrayOfScores))
+ arrayOfScores.push(topPlayer)
+ console.log(arrayOfScores)
+
+ localStorage.setItem("highScoreList", JSON.stringify(topPlayer))
+ 
+
  var arrayOfScores = JSON.parse( localStorage.getItem("highScoreList")) || []
-  arrayOfScores.push(topPlayer)
+  
   
 
   alert("The leading scorer is " + topPlayer.name.maxCounter + "with a score of " + topPlayer.score.maxCounter + " points.")

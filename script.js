@@ -23,7 +23,7 @@ let answers3Text = ["Numbers and strings", "Other arrays", "Booleans", "All of t
 let answers4Text = ["Commas", "Curly brackets", "Quotes", "Parentheses"];
 let answers5Text = ["JavaScript", "Terminal/Bash", "For Loop", "Console Log"]; 
 var secondsRemaining = 30
-var arrayOfScores
+var arrayOfScores  
 
 
  //end game function
@@ -41,10 +41,11 @@ var arrayOfScores
     name: scorerName,
     score: score
  }
+ 
+ localStorage.setItem("highScoreList", JSON.stringify(arrayOfScores))
+ var arrayOfScores = JSON.parse( localStorage.getItem("highScoreList")) || []
+  arrayOfScores.push(topPlayer)
   
-  var arrayOfScores = JSON.parse( localStorage.getItem("highScoreList")) || []
-  arrayOfScores.push(scorerName)
-  localStorage.setItem("highScoreList", JSON.stringify(arrayOfScores))
 
   alert("The leading scorer is " + topPlayer.name.maxCounter + "with a score of " + topPlayer.score.maxCounter + " points.")
 
@@ -64,7 +65,7 @@ function startFunction() {
       endGame()
 
     } else {
-      document.getElementById("seconds").innerHTML = secondsRemaining + " seconds remaining";
+      document.getElementById("seconds").innerHTML = secondsRemaining + " seconds remaining...";
     }
     secondsRemaining -= 1;
   }, 1000);
